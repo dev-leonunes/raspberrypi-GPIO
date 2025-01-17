@@ -2,7 +2,7 @@
 #include "pico/stdlib.h"
 
 
-const uint Buzzer = 10;
+const uint Buzzer = 21;
 const uint led_G = 11;
 const uint led_B = 12;
 const uint led_R = 13;
