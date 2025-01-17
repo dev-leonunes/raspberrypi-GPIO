@@ -41,7 +41,7 @@ pico_set_program_name(ControleGPIO "ControleGPIO")
 pico_set_program_version(ControleGPIO "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(ControleGPIO 1)
+pico_enable_stdio_uart(ControleGPIO 0)
 pico_enable_stdio_usb(ControleGPIO 1)
 
 # Add the standard library to the build
