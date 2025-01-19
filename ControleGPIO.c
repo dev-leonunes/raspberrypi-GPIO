@@ -114,7 +114,8 @@ int main()
                     acionar_buzzer();
                 }
             }
-            else if (key >= 'A' && key <= 'D')
+            
+            if (key >= 'A' && key <= 'D')
             { 
                 int index = key - 'A'; // A-> 0, B-> 1, C-> 2, D->3
                 value = value_letter[index]; // Atualizar valor predefinido
