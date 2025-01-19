@@ -114,7 +114,7 @@ int main()
                     acionar_buzzer();
                 }
             }
-            
+
             if (key >= 'A' && key <= 'D')
             { 
                 int index = key - 'A'; // A-> 0, B-> 1, C-> 2, D->3
@@ -122,7 +122,7 @@ int main()
             }
 
         }
-        sleep_ms(100); // Debounce
+        sleep_ms(100); 
     }
 }
 }
