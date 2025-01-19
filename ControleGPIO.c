@@ -5,17 +5,16 @@ const uint Buzzer = 21;
 const uint led_G = 11;
 const uint led_B = 12;
 const uint led_R = 13;
-#define Tempo_led 500
+#define cols 4;
+#define rows 4;
+#define Tempo_led 500;
 
 // função de acender e apagar os leds
-int acender_led(uint led)
-{
-    gpio_put(led, 1);
+int acender_led_G(uint led){
+    gpio_put(led_G, 1);
     sleep_ms(Tempo_led);
-    gpio_put(led, 0);
-    sleep_ms(Tempo_led);
+    gpio_put(led_G, 0);
 }
-
 // função de inicialização dos leds
 void led_init()
 {
@@ -28,10 +27,31 @@ void led_init()
     gpio_init(led_R);
     gpio_set_dir(led_R, GPIO_OUT);
 }
-
 // função de leitura do teclado
-
-// função de acionamento do buzzer, um pra erro e outro para acerto
+const uint8_t row_pins[rows] = {8,7,6,5};//R1 R2 R3 R4
+const uint8_t col_pins[cols] = {4,3,2,28};//C1 C2 C3 C4
+//mapamento teclado matricial
+const char key_map[rows][cols] = {
+    {'1','2','3','A'},
+    {'4','5','6','B'},
+    {'7','8','9','C'},
+    {'*','0','#','D'}
+};
+//inicializacao do teclao
+void keypad_init()
+{
+    for(int i = 0; i< rows;i++){
+        gpio_init(row_pins[i]);
+        gpio_set_dir(row_pins[i], GPIO_OUT);
+        gpio_put(row_pins[i],false);
+    }
+    for(int i = 0; i< cols;i++){
+        gpio_init(col_pins[i]);
+        gpio_set_dir(col_pins[i], GPIO_IN);
+        gpio_pull_down(col_pins[i]);
+    }
+}
+// função de acionamento do buzzer
 void acionar_buzzer()
 {
     // tempo de acionamento do buzzer
@@ -59,15 +79,14 @@ int main()
     // inicialização das portas com os pinos e o buzzer
     led_init();
     stdio_init_all();
-
-    // inicialização do teclado
-
+   //inicialização do teclado
+    keypad_init();
     while (true)
     {
         // definir os valores para comparação
 
         // ler o teclado e fazer os comparativos
 
-        // acender o led de acordo com o valor do teclado
+       // acender o led de acordo com o valor do teclado
     }
-}
+  
