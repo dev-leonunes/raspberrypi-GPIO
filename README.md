@@ -67,4 +67,4 @@ Haverão 4 senhas distintas de A até D. O usuário escolhe previamente.
 3. Commit suas mudanças (git commit -m 'Adiciona nova feature').
 4. Faça o push para a branch (git push origin feature/nova-feature).
 5. Abra um Pull Request.
-link do vídeo de execução: https://www.dropbox.com/scl/fi/pohecsqnmpj6tx3l07mn6/Tarefa-01.mp4?rlkey=wsss256kbjnwk9jlh6h9uuynx&st=yoypk9qh&dl=0
+6. Link do vídeo de execução: https://www.dropbox.com/scl/fi/pohecsqnmpj6tx3l07mn6/Tarefa-01.mp4?rlkey=wsss256kbjnwk9jlh6h9uuynx&st=yoypk9qh&dl=0
