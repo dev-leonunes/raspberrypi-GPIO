@@ -83,18 +83,46 @@ int main()
     stdio_init_all();
     // inicialização do teclado
     keypad_init();
+
     while (true)
     {
-        // definir os valores para comparação
+    // Valores predefinidos
+    int value = 5; // Valor predefinido inicial (associado à tecla A)
+    const int value_letter[4] = {5, 8, 10, 12}; // Valores para A, B, C, D
 
-        // ler o teclado e fazer os comparativos
+     while (true)
+    {
+        char key = read_keypad();
 
-        // FAVOR EXCLUIR OS COMENTÁRIOS ABAIXO ANTES DE ENVIAR O CÓDIGO
-        // para acionar os leds deve usar a função acender_led(led) passando o led que deseja acionar
-        // exemplo: acender_led(led_G); acende o led verde,
-        // acender_led(led_B); acende o led azul,
-        // acender_led(led_R); acende o led vermelho
+        if (key != 0)
+        {
 
-        // acender o led de acordo com o valor do teclado
+            if (key >= '0' && key <= '9')
+            {
+                int num = key - '0';
+                if (num > value)
+                {
+                    acender_led(led_G); // LED verde
+                }
+                else if (num < value)
+                {
+                    acender_led(led_R); // LED vermelho
+                }
+                else
+                {
+                    acender_led(led_B); // LED azul
+                    acionar_buzzer();
+                }
+            }
+
+            if (key >= 'A' && key <= 'D')
+            { 
+                int index = key - 'A'; // A-> 0, B-> 1, C-> 2, D->3
+                value = value_letter[index]; // Atualizar valor predefinido
+            }
+
+        }
+        sleep_ms(100); 
     }
+}
 }
