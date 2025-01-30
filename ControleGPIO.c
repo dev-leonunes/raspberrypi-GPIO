@@ -9,14 +9,15 @@ const uint led_R = 13;
 #define rows 4
 #define Tempo_led 500
 
-// função de acender e apagar os leds
+// Função de acender e apagar os leds
 int acender_led(uint led)
 {
     gpio_put(led, 1);
     sleep_ms(Tempo_led);
     gpio_put(led, 0);
 }
-// função de inicialização dos leds
+
+// Função de inicialização dos leds
 void led_init()
 {
     gpio_init(led_G);
@@ -28,13 +29,15 @@ void led_init()
     gpio_init(led_R);
     gpio_set_dir(led_R, GPIO_OUT);
 }
-// mapamento teclado matricial
+
+// Mapamento teclado matricial
 const char key_map[rows][cols] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
     {'7', '8', '9', 'C'},
     {'*', '0', '#', 'D'}};
-// função de leitura do teclado
+
+// Função de leitura do teclado
 const uint8_t row_pins[rows] = {8, 7, 6, 5};  // R1 R2 R3 R4
 const uint8_t col_pins[cols] = {4, 3, 2, 28}; // C1 C2 C3 C4
 
@@ -58,7 +61,8 @@ char read_keypad()
     }
     return '\0';
 }
-// inicializacao do teclao
+
+// Função de inicialização do teclao
 void keypad_init()
 {
     for (int i = 0; i < rows; i++)
@@ -74,35 +78,29 @@ void keypad_init()
         gpio_pull_down(col_pins[i]);
     }
 }
-// função de acionamento do buzzer
+
+// Função de acionamento do buzzer
 void acionar_buzzer()
 {
-    // tempo de acionamento do buzzer
     int time = 1000;
-    // executa enquanto o contador não zera
+
     while (time > 0)
     {
-        // ativa o buzzer
         gpio_put(Buzzer, 1);
-        // fica ativo por 1 ms
         sleep_ms(1);
-        // decrementa contador
         time -= 1;
-        // desativa o buzzer
         gpio_put(Buzzer, 0);
-        // fica desativado por 3 ms
         sleep_ms(3);
-        // decrementa contador
         time -= 3;
     }
 }
 
 int main()
 {
-    // inicialização das portas com os pinos e o buzzer
+    // Inicialização das portas com os pinos e o buzzer
     led_init();
     stdio_init_all();
-    // inicialização do teclado
+    // Inicialização do teclado
     keypad_init();
 
     gpio_init(Buzzer);
@@ -126,15 +124,15 @@ int main()
                     int num = key - '0';
                     if (num > value)
                     {
-                        acender_led(led_G); // LED verde
+                        acender_led(led_G);
                     }
                     else if (num < value)
                     {
-                        acender_led(led_R); // LED vermelho
+                        acender_led(led_R);
                     }
                     else
                     {
-                        acender_led(led_B); // LED azul
+                        acender_led(led_B);
                         acionar_buzzer();
                     }
                 }
