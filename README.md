@@ -1,14 +1,14 @@
-# Controle-de-Pinos-GPIO
+# Projeto Controle de Pinos GPIO com Raspberry Pi Pico W
 
-Este projeto é um exemplo de controle de pinos GPIO utilizando o Raspberry Pi Pico. Ele inclui funcionalidades para acender LEDs, ler um teclado matricial e controlar um buzzer.
+Este projeto é um exemplo de controle de pinos GPIO utilizando o Raspberry Pi Pico W. Ele inclui funcionalidades para acender LEDs, ler um teclado matricial e controlar um buzzer.
 
 ## Descrição do Projeto
-Tarefa 01 do Capítulo 04 do Embarcatech-CEPEDI
-
 O código consiste em acertar o valor correto da senha variando de 0 a 9, fazendo a leitura de um teclado matricial 4x4. 
 Os leds serão acesos indicando se o valor foi alto ou baixo, ou se acertou. 
 Um sinal sonoro reforçará o comando de acordo com o resultado.
 Haverão 4 senhas distintas de A até D. O usuário escolhe previamente.
+
+<img src="./assets/image.png" width=400px>
 
 ## Funcionalidades
 
@@ -36,8 +36,8 @@ Haverão 4 senhas distintas de A até D. O usuário escolhe previamente.
 
 1. **Clone o repositório**:
    ```sh
-   git clone https://github.com/seu-usuario/Controle-de-pinos-GPIO.git
-   cd Controle-de-pinos-GPIO
+   git clone https://github.com/dev-leonunes/raspberrypi-GPIO.git
+   cd raspberrypi-GPIO
    ```
 
 2. **Configurar o ambiente no Visual Studio Code**:
@@ -59,9 +59,9 @@ Haverão 4 senhas distintas de A até D. O usuário escolhe previamente.
 - `.vscode`: Diretório contendo configurações do Visual Studio Code.
 - `build`: Diretório onde os arquivos compilados serão gerados.
 - `CMakeLists.txt`: Arquivo de configuração do CMake para o projeto.
-- `ControleGPIO.c`: Código fonte principal do projeto.
 - `diagram.json`: Diagrama de conexões dos componentes.
 - `pico_sdk_import.cmake`: Arquivo de importação do SDK do Raspberry Pi Pico.
+- `raspberrypi-GPIO.c`: Código fonte principal do projeto.
 - `wokwi.toml`: Arquivo de configuração para simulação no Wokwi.
 
 ## Contribuição

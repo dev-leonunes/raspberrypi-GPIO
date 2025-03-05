@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/ControleGPIO.uf2'
-elf = 'build/ControleGPIO.elf'
+firmware = 'build/raspberrypi-GPIO.uf2'
+elf = 'build/raspberrypi-GPIO.elf'
